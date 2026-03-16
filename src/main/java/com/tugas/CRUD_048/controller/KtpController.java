@@ -17,6 +17,12 @@ public class KtpController {
     @Autowired
     private KtpService ktpService;
 
+    @PostMapping
+    public ResponseEntity<Ktp> createKtp(@RequestBody Ktp ktp) {
+        Ktp newKtp = ktpService.createKtp(ktp);
+        return new ResponseEntity<>(newKtp, HttpStatus.CREATED);
+    }
+
     @GetMapping
     public ResponseEntity<List<Ktp>> getAllKtp() {
         List<Ktp> listKtp = ktpService.getAllKtp();
