@@ -1,10 +1,16 @@
 package com.tugas.CRUD_048.controller;
 
+import com.tugas.CRUD_048.model.Ktp;
 import com.tugas.CRUD_048.service.KtpService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/ktp")
@@ -13,4 +19,10 @@ public class KtpController {
 
     @Autowired
     private KtpService ktpService;
+
+    @GetMapping
+    public ResponseEntity<List<Ktp>> getAllKtp() {
+        List<Ktp> listKtp = ktpService.getAllKtp();
+        return new ResponseEntity<>(listKtp, HttpStatus.OK);
+    }
 }
