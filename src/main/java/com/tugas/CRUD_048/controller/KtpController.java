@@ -8,4 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/ktp")
 @CrossOrigin(origins = "*")
 public class KtpController {
+
+    @Autowired
+    private KtpService ktpService;
 }
