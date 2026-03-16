@@ -28,4 +28,10 @@ public class KtpController {
         Ktp ktp = ktpService.getKtpById(id);
         return new ResponseEntity<>(ktp, HttpStatus.OK);
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Ktp> updateKtp(@PathVariable Integer id, @RequestBody Ktp ktpDetails) {
+        Ktp updatedKtp = ktpService.updateKtp(id, ktpDetails);
+        return new ResponseEntity<>(updatedKtp, HttpStatus.OK);
+    }
 }
